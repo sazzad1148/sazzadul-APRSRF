@@ -1,0 +1,114 @@
+{
+  "domain": "example.com",
+  "generated_at": 1785314250.318145,
+  "total_runtime_seconds": 68.6,
+  "counts": {
+    "passive_candidates": 214,
+    "validated_after_recursion": 9,
+    "validated_from_permutations": 1,
+    "final_validated_hosts": 8,
+    "cloud_assets": 2,
+    "per_level_wildcard_hosts": 1
+  },
+  "live_hosts": 8,
+  "wildcard_hosts": 1,
+  "cloud_hosts": 2,
+  "cloud_by_provider": {
+    "Cloudflare": 1,
+    "AWS": 1
+  },
+  "asn_groups": {
+    "13335": 1
+  },
+  "provider_health": {
+    "crt.sh": {
+      "status": "ok",
+      "hosts": 114,
+      "reason": null,
+      "raw_count": 121,
+      "invalid_count": 2,
+      "out_of_scope_count": 1,
+      "duplicate_count": 4
+    },
+    "censys": {
+      "status": "ok",
+      "hosts": 18,
+      "reason": null,
+      "raw_count": 18,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "certspotter": {
+      "status": "ok",
+      "hosts": 31,
+      "reason": null,
+      "raw_count": 31,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "virustotal": {
+      "status": "ok",
+      "hosts": 42,
+      "reason": null,
+      "raw_count": 50,
+      "invalid_count": 3,
+      "out_of_scope_count": 5,
+      "duplicate_count": 0
+    },
+    "fullhunt": {
+      "status": "ok",
+      "hosts": 9,
+      "reason": null,
+      "raw_count": 9,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "rapiddns": {
+      "status": "ok",
+      "hosts": 0,
+      "reason": null,
+      "raw_count": 0,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "github": {
+      "status": "skipped",
+      "hosts": 0,
+      "reason": "Missing key (github)"
+    },
+    "chaos": {
+      "status": "skipped",
+      "hosts": 0,
+      "reason": "Missing key (chaos)"
+    },
+    "findomain": {
+      "status": "skipped",
+      "hosts": 0,
+      "reason": "Missing binary (findomain)"
+    },
+    "hackertarget": {
+      "status": "error",
+      "hosts": 0,
+      "reason": "hackertarget: API count exceeded (free-tier rate limit hit)"
+    }
+  },
+  "duplicates": {
+    "raw_mentions": 249,
+    "unique_hosts": 214,
+    "duplicate_mentions": 35
+  },
+  "confidence_weights": {
+    "multi_provider": 20,
+    "dns_valid": 20,
+    "recursive": 15,
+    "cloud": 10,
+    "github": 15,
+    "crt": 10,
+    "permutation_penalty": -15
+  },
+  "wildcard_ips": []
+}

@@ -1,0 +1,9 @@
+api.example.com
+api2.developer.example.com
+cdn-assets.example.com
+developer.example.com
+mail.example.com
+staging.example.com
+vpn.example.com
+www.example.com
+# ... (214 total passive candidates before validation)

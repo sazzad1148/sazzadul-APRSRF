@@ -1,0 +1,615 @@
+{
+  "domain": "example.com",
+  "generated_at": 1785314250.318145,
+  "counts": {
+    "passive_candidates": 214,
+    "validated_after_recursion": 9,
+    "validated_from_permutations": 1,
+    "final_validated_hosts": 8,
+    "cloud_assets": 2,
+    "per_level_wildcard_hosts": 1
+  },
+  "provider_health": {
+    "crt.sh": {
+      "status": "ok",
+      "hosts": 114,
+      "reason": null,
+      "raw_count": 121,
+      "invalid_count": 2,
+      "out_of_scope_count": 1,
+      "duplicate_count": 4
+    },
+    "censys": {
+      "status": "ok",
+      "hosts": 18,
+      "reason": null,
+      "raw_count": 18,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "certspotter": {
+      "status": "ok",
+      "hosts": 31,
+      "reason": null,
+      "raw_count": 31,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "virustotal": {
+      "status": "ok",
+      "hosts": 42,
+      "reason": null,
+      "raw_count": 50,
+      "invalid_count": 3,
+      "out_of_scope_count": 5,
+      "duplicate_count": 0
+    },
+    "fullhunt": {
+      "status": "ok",
+      "hosts": 9,
+      "reason": null,
+      "raw_count": 9,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "rapiddns": {
+      "status": "ok",
+      "hosts": 0,
+      "reason": null,
+      "raw_count": 0,
+      "invalid_count": 0,
+      "out_of_scope_count": 0,
+      "duplicate_count": 0
+    },
+    "github": {
+      "status": "skipped",
+      "hosts": 0,
+      "reason": "Missing key (github)"
+    },
+    "chaos": {
+      "status": "skipped",
+      "hosts": 0,
+      "reason": "Missing key (chaos)"
+    },
+    "findomain": {
+      "status": "skipped",
+      "hosts": 0,
+      "reason": "Missing binary (findomain)"
+    },
+    "hackertarget": {
+      "status": "error",
+      "hosts": 0,
+      "reason": "hackertarget: API count exceeded (free-tier rate limit hit)"
+    }
+  },
+  "duplicates": {
+    "raw_mentions": 249,
+    "unique_hosts": 214,
+    "duplicate_mentions": 35
+  },
+  "confidence_weights": {
+    "multi_provider": 20,
+    "dns_valid": 20,
+    "recursive": 15,
+    "cloud": 10,
+    "github": 15,
+    "crt": 10,
+    "permutation_penalty": -15
+  },
+  "wildcard_ips": [],
+  "reverse_dns_groups": {
+    "by_asn": {
+      "13335": [
+        "www.example.com"
+      ]
+    },
+    "by_cloud_provider": {
+      "Cloudflare": [
+        "www.example.com"
+      ],
+      "AWS": [
+        "cdn-assets.example.com"
+      ]
+    }
+  },
+  "metrics": {
+    "01_passive_sources": {
+      "runtime_seconds": 24.1,
+      "success": 15,
+      "failure": 1,
+      "errors": []
+    },
+    "02_wildcard_detection": {
+      "runtime_seconds": 3.2,
+      "success": 1,
+      "failure": 0,
+      "errors": []
+    },
+    "03_initial_dns_validation": {
+      "runtime_seconds": 8.6,
+      "success": 214,
+      "failure": 6,
+      "errors": []
+    },
+    "04_recursive_enumeration": {
+      "runtime_seconds": 11.4,
+      "success": 27,
+      "failure": 0,
+      "errors": []
+    },
+    "05_word_extraction": {
+      "runtime_seconds": 0.1,
+      "success": 42,
+      "failure": 0,
+      "errors": []
+    },
+    "06_permutation_validation": {
+      "runtime_seconds": 6.8,
+      "success": 1,
+      "failure": 2999,
+      "errors": []
+    },
+    "07_reverse_dns": {
+      "runtime_seconds": 2.1,
+      "success": 6,
+      "failure": 0,
+      "errors": []
+    },
+    "08_cloud_discovery": {
+      "runtime_seconds": 3.4,
+      "success": 2,
+      "failure": 0,
+      "errors": []
+    },
+    "09_dns_records": {
+      "runtime_seconds": 4.2,
+      "success": 8,
+      "failure": 0,
+      "errors": []
+    },
+    "10_enrichment": {
+      "runtime_seconds": 2.9,
+      "success": 8,
+      "failure": 0,
+      "errors": []
+    },
+    "11_final_filter_validation": {
+      "runtime_seconds": 1.8,
+      "success": 8,
+      "failure": 0,
+      "errors": []
+    }
+  },
+  "cache_stats": {
+    "api": 15,
+    "dns": 220
+  },
+  "hosts": [
+    {
+      "host": "www.example.com",
+      "validated": true,
+      "sources": [
+        "crt.sh",
+        "censys",
+        "certspotter"
+      ],
+      "provider_count": 3,
+      "confidence": 95,
+      "confidence_label": "High",
+      "confidence_breakdown": {
+        "multi_provider": 20,
+        "dns_valid": 20,
+        "cloud": 10,
+        "crt": 10
+      },
+      "records": {
+        "ips": [
+          "93.184.216.34"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "93.184.216.34"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {
+        "provider": "Cloudflare",
+        "service": "CDN/Proxy",
+        "evidence": "www.example.com.cdn.cloudflare.net",
+        "cname_chain": [
+          "www.example.com.cdn.cloudflare.net"
+        ]
+      },
+      "wildcard": false,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [
+        "cloud"
+      ],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {
+          "93.184.216.34": "one.one.one.one"
+        },
+        "asn": {
+          "93.184.216.34": {
+            "asn": "13335",
+            "prefix": "93.184.216.0/24",
+            "country": "US",
+            "registry": "arin",
+            "org": "CLOUDFLARENET"
+          }
+        }
+      }
+    },
+    {
+      "host": "api.example.com",
+      "validated": true,
+      "sources": [
+        "crt.sh",
+        "virustotal"
+      ],
+      "provider_count": 2,
+      "confidence": 65,
+      "confidence_label": "Medium",
+      "confidence_breakdown": {
+        "multi_provider": 20,
+        "dns_valid": 20,
+        "crt": 10,
+        "permutation_penalty": 0
+      },
+      "records": {
+        "ips": [
+          "93.184.216.35"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "93.184.216.35"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {},
+      "wildcard": false,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    },
+    {
+      "host": "developer.example.com",
+      "validated": true,
+      "sources": [
+        "fullhunt"
+      ],
+      "provider_count": 1,
+      "confidence": 40,
+      "confidence_label": "Medium",
+      "confidence_breakdown": {
+        "dns_valid": 20,
+        "permutation_penalty": 0
+      },
+      "records": {
+        "ips": [
+          "203.0.113.10"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "203.0.113.10"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {},
+      "wildcard": false,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    },
+    {
+      "host": "api2.developer.example.com",
+      "validated": true,
+      "sources": [
+        "recursive-crt.sh",
+        "recursive-wayback"
+      ],
+      "provider_count": 2,
+      "confidence": 55,
+      "confidence_label": "Medium",
+      "confidence_breakdown": {
+        "multi_provider": 20,
+        "dns_valid": 20,
+        "recursive": 15
+      },
+      "records": {
+        "ips": [
+          "203.0.113.11"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "203.0.113.11"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {},
+      "wildcard": false,
+      "recursive_depth": 2,
+      "discovery_path": [
+        "example.com",
+        "developer.example.com"
+      ],
+      "tags": [
+        "recursive"
+      ],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    },
+    {
+      "host": "cdn-assets.example.com",
+      "validated": true,
+      "sources": [
+        "rapiddns"
+      ],
+      "provider_count": 1,
+      "confidence": 20,
+      "confidence_label": "Low",
+      "confidence_breakdown": {
+        "dns_valid": 20
+      },
+      "records": {
+        "ips": [
+          "203.0.113.99"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "203.0.113.99"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {
+        "provider": "AWS",
+        "service": "CloudFront",
+        "evidence": "d123abc.cloudfront.net",
+        "cname_chain": [
+          "d123abc.cloudfront.net"
+        ]
+      },
+      "wildcard": false,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [
+        "cloud"
+      ],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    },
+    {
+      "host": "vpn.example.com",
+      "validated": true,
+      "sources": [
+        "github",
+        "recursive-github"
+      ],
+      "provider_count": 2,
+      "confidence": 85,
+      "confidence_label": "High",
+      "confidence_breakdown": {
+        "multi_provider": 20,
+        "dns_valid": 20,
+        "recursive": 15,
+        "github": 15
+      },
+      "records": {
+        "ips": [
+          "203.0.113.50"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "203.0.113.50"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {},
+      "wildcard": false,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [
+        "recursive"
+      ],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    },
+    {
+      "host": "staging.example.com",
+      "validated": true,
+      "sources": [
+        "permutation"
+      ],
+      "provider_count": 1,
+      "confidence": 5,
+      "confidence_label": "Low",
+      "confidence_breakdown": {
+        "dns_valid": 20,
+        "permutation_penalty": -15
+      },
+      "records": {
+        "ips": [
+          "203.0.113.75"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "203.0.113.75"
+            ],
+            "ttl": 300
+          }
+        }
+      },
+      "cloud": {},
+      "wildcard": true,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [
+        "permutation",
+        "wildcard-suspect"
+      ],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    },
+    {
+      "host": "mail.example.com",
+      "validated": true,
+      "sources": [
+        "crt.sh",
+        "hackertarget",
+        "rapiddns"
+      ],
+      "provider_count": 3,
+      "confidence": 90,
+      "confidence_label": "High",
+      "confidence_breakdown": {
+        "multi_provider": 20,
+        "dns_valid": 20,
+        "crt": 10
+      },
+      "records": {
+        "ips": [
+          "203.0.113.25"
+        ],
+        "ttl": 300,
+        "resolver_used": "8.8.8.8",
+        "response_time_ms": 14.2,
+        "dnssec": false,
+        "dns_records": {
+          "A": {
+            "values": [
+              "203.0.113.25"
+            ],
+            "ttl": 3600
+          },
+          "MX": {
+            "values": [
+              "10 mail.example.com."
+            ],
+            "ttl": 3600
+          },
+          "TXT": {
+            "values": [
+              "v=spf1 include:_spf.example.com ~all"
+            ],
+            "ttl": 3600
+          }
+        }
+      },
+      "cloud": {},
+      "wildcard": false,
+      "recursive_depth": 1,
+      "discovery_path": [
+        "example.com"
+      ],
+      "tags": [],
+      "metadata": {
+        "first_seen": 1785227850.318145,
+        "last_seen": 1785314250.318145,
+        "validation_time": 1785314250.318145,
+        "ptr": {},
+        "asn": {}
+      }
+    }
+  ],
+  "total_runtime_seconds": 68.6
+}

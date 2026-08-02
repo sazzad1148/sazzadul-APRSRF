@@ -1,0 +1,8 @@
+www.example.com
+api.example.com
+developer.example.com
+api2.developer.example.com
+cdn-assets.example.com
+vpn.example.com
+staging.example.com
+mail.example.com

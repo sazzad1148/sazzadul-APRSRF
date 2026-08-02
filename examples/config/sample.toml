@@ -1,0 +1,7 @@
+threads = 80
+max_depth = 6
+cache_ttl_seconds = 3600
+
+[confidence_weights]
+cloud = 20
+permutation_penalty = -25

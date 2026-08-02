@@ -1,0 +1,5 @@
+# One domain per line for -dL/--domain-list batch mode.
+# Blank lines and #comments are skipped.
+example.com
+another-domain.example
+# this-one-is-commented-out.example

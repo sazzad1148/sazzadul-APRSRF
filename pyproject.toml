@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "passive-enumeration-by-sazzad007"
+version = "3.2.2"
+description = "Passive + active subdomain reconnaissance: multi-source OSINT, deep recursive enumeration, smart wildcard filtering, cloud/ASN discovery, configurable confidence engine, SQLite intel DB, diff mode."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "sazzad007" }]
+dependencies = [
+    "requests>=2.31",
+    "dnspython>=2.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "black>=24.0",
+    "ruff>=0.4",
+    "mypy>=1.9",
+    "pre-commit>=3.6",
+]
+
+[project.scripts]
+passive-enum = "subdomain_recon.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["subdomain_recon*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]  # line length handled by black
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
+# Third-party OSINT source plugins intentionally keep loose typing on
+# fetch() return values (raw JSON shapes vary per provider) -- not yet
+# fully strict everywhere; tighten incrementally rather than blocking CI.
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

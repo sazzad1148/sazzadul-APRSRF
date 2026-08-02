@@ -1,0 +1,9 @@
+hostname,ips,sources,provider_count,confidence,confidence_label,wildcard,cloud_provider,cloud_service,recursive_depth,discovery_path,ttl,resolver_used,response_time_ms,dnssec,asn,first_seen,last_seen
+www.example.com,93.184.216.34,crt.sh;censys;certspotter,3,95,High,False,Cloudflare,CDN/Proxy,1,example.com,300,8.8.8.8,14.2,False,CLOUDFLARENET,1785227850.318145,1785314250.318145
+api.example.com,93.184.216.35,crt.sh;virustotal,2,65,Medium,False,,,1,example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145
+developer.example.com,203.0.113.10,fullhunt,1,40,Medium,False,,,1,example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145
+api2.developer.example.com,203.0.113.11,recursive-crt.sh;recursive-wayback,2,55,Medium,False,,,2,example.com;developer.example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145
+cdn-assets.example.com,203.0.113.99,rapiddns,1,20,Low,False,AWS,CloudFront,1,example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145
+vpn.example.com,203.0.113.50,github;recursive-github,2,85,High,False,,,1,example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145
+staging.example.com,203.0.113.75,permutation,1,5,Low,True,,,1,example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145
+mail.example.com,203.0.113.25,crt.sh;hackertarget;rapiddns,3,90,High,False,,,1,example.com,300,8.8.8.8,14.2,False,,1785227850.318145,1785314250.318145

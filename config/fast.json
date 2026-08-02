@@ -1,0 +1,14 @@
+{
+  "threads": 30,
+  "dns_timeout": 3,
+  "http_timeout": 10,
+  "retries": 1,
+  "max_depth": 2,
+  "perm_limit_per_level": 500,
+  "recursive_crtsh_per_level": true,
+  "cache_ttl_seconds": 3600,
+  "max_recursion_rounds": 3,
+  "backoff_base_seconds": 0.5,
+  "backoff_max_seconds": 8.0,
+  "dns_resolvers": null
+}

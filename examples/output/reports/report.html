@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>sazzad007 -- example.com</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background:#0d1117; color:#c9d1d9; font-family: -apple-system, Segoe UI, Roboto, sans-serif; margin:0; padding:2rem; }
+  h1 { color:#ff2d55; }
+  .stats { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .stat { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:0.75rem 1.25rem; }
+  .stat b { display:block; font-size:1.4rem; color:#ff8c00; }
+  table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+  th, td { border-bottom:1px solid #30363d; padding:6px 8px; text-align:left; vertical-align:top; }
+  th { background:#161b22; position:sticky; top:0; cursor:pointer; }
+  tr:hover { background:#161b22; }
+  .tag { display:inline-block; background:#21262d; border:1px solid #30363d; border-radius:10px;
+          padding:1px 8px; margin:1px; font-size:0.72rem; }
+  .high { color:#3fb950; } .medium { color:#d29922; } .low { color:#f85149; }
+  input#filter { padding:6px 10px; width:280px; margin-bottom:1rem; background:#161b22; color:#c9d1d9; border:1px solid #30363d; border-radius:6px; }
+</style></head>
+<body>
+<h1>sazzad007 -- passive + active subdomain recon</h1>
+<p>Target: <b>example.com</b> &middot; Generated: Wed Jul 29 08:37:30 2026 &middot; Runtime: 68.6s</p>
+<div class="stats"><div class="stat"><b>214</b>passive candidates</div><div class="stat"><b>9</b>validated after recursion</div><div class="stat"><b>1</b>validated from permutations</div><div class="stat"><b>8</b>final validated hosts</div><div class="stat"><b>2</b>cloud assets</div><div class="stat"><b>1</b>per level wildcard hosts</div></div>
+<input id="filter" placeholder="Filter hostnames..." onkeyup="filterTable()">
+<table id="hosts">
+<thead><tr>
+<th>Host</th><th>IP(s)</th><th>Sources</th><th>Confidence</th><th>Cloud</th>
+<th>Wildcard</th><th>Depth</th><th>Discovery Path</th><th>Tags</th>
+</tr></thead>
+<tbody>
+<tr><td>www.example.com</td><td>93.184.216.34</td><td>crt.sh, censys, certspotter</td><td class='high'>95 (High)</td><td>Cloudflare</td><td>no</td><td>1</td><td>example.com</td><td><span class="tag">cloud</span></td></tr>
+<tr><td>api.example.com</td><td>93.184.216.35</td><td>crt.sh, virustotal</td><td class='medium'>65 (Medium)</td><td></td><td>no</td><td>1</td><td>example.com</td><td></td></tr>
+<tr><td>developer.example.com</td><td>203.0.113.10</td><td>fullhunt</td><td class='medium'>40 (Medium)</td><td></td><td>no</td><td>1</td><td>example.com</td><td></td></tr>
+<tr><td>api2.developer.example.com</td><td>203.0.113.11</td><td>recursive-crt.sh, recursive-wayback</td><td class='medium'>55 (Medium)</td><td></td><td>no</td><td>2</td><td>example.com -&gt; developer.example.com</td><td><span class="tag">recursive</span></td></tr>
+<tr><td>cdn-assets.example.com</td><td>203.0.113.99</td><td>rapiddns</td><td class='low'>20 (Low)</td><td>AWS</td><td>no</td><td>1</td><td>example.com</td><td><span class="tag">cloud</span></td></tr>
+<tr><td>vpn.example.com</td><td>203.0.113.50</td><td>github, recursive-github</td><td class='high'>85 (High)</td><td></td><td>no</td><td>1</td><td>example.com</td><td><span class="tag">recursive</span></td></tr>
+<tr><td>staging.example.com</td><td>203.0.113.75</td><td>permutation</td><td class='low'>5 (Low)</td><td></td><td>yes</td><td>1</td><td>example.com</td><td><span class="tag">permutation</span> <span class="tag">wildcard-suspect</span></td></tr>
+<tr><td>mail.example.com</td><td>203.0.113.25</td><td>crt.sh, hackertarget, rapiddns</td><td class='high'>90 (High)</td><td></td><td>no</td><td>1</td><td>example.com</td><td></td></tr>
+</tbody>
+</table>
+<script>
+function filterTable() {
+  const q = document.getElementById('filter').value.toLowerCase();
+  document.querySelectorAll('#hosts tbody tr').forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+document.querySelectorAll('#hosts th').forEach((th, idx) => {
+  th.addEventListener('click', () => {
+    const tbody = document.querySelector('#hosts tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const asc = th.dataset.asc = th.dataset.asc === '1' ? '0' : '1';
+    rows.sort((a, b) => {
+      const av = a.children[idx].innerText, bv = b.children[idx].innerText;
+      return asc === '1' ? av.localeCompare(bv) : bv.localeCompare(av);
+    });
+    rows.forEach(r => tbody.appendChild(r));
+  });
+});
+</script>
+</body></html>
