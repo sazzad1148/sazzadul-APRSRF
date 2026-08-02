@@ -59,7 +59,6 @@ python3 run.py -d example.com --profile thorough --max-depth 8
 python3 run.py -dL example.txt --profile fast
 python3 run.py -dL example.txt --profile balanced
 python3 run.py -dL example.txt --profile thorough
-<img width="366" height="151" alt="image" src="https://github.com/user-attachments/assets/e3271702-44c5-4e1b-8fa6-153ba4e73219" />
 
 
 python3 run.py -d example.com --recursion-round-timeout 120   # default: 60/180/400s by profile
@@ -128,21 +127,15 @@ output/
 ```
 
 
-`--config-file` accepts three formats, picked by extension:
+`--config-file` accepts formats, picked by extension:
 
 ```bash
 python3 run.py -d example.com --config-file myconfig.json   # stdlib, always available
 python3 run.py -d example.com --config-file myconfig.toml   # stdlib (tomllib, Python 3.11+), no extra install
 python3 run.py -d example.com --config-file myconfig.yaml   # needs: pip install pyyaml --break-system-packages
-```
 
-
-
-
-
-```bash
-python3 run.py -d crypto.com --profile balanced --recursion-threads 30
-python3 run.py -d crypto.com --profile balanced --max-recursion-frontier 0   # disable the cap
+python3 run.py -d example.com --profile balanced --recursion-threads 30
+python3 run.py -d example.com --profile balanced --max-recursion-frontier 0   # disable the cap
 ```
 
 ##  Resume & checkpoints
@@ -152,22 +145,6 @@ python3 run.py -d example.com --profile thorough --resume
 python3 run.py -d example.com --profile thorough --fresh   # force a clean re-run
 ```
 
-Pipeline stages, in order: `01_passive_sources`, `02_wildcard_detection`,
-`03_initial_dns_validation`, `04_recursive_enumeration`, `05_word_extraction`,
-`06_permutation_validation`, `07_reverse_dns` (+ ASN), `08_cloud_discovery`,
-`09_dns_records`, `10_enrichment`, `11_final_filter_validation`.
-
-##  Running the test suite
-
-```bash
-pip install pytest dnspython --break-system-packages
-pytest tests/ -v
-```
-
-Covers: hostname normalization, scope/depth checks, config-profile loading
-and overrides, confidence scoring, and the full `txt/ + json/ + reports/`
-export layout (including the "auto-cleanup only removes checkpoints"
-behavior).
 ### Logging flags
 
 ```bash
