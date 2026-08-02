@@ -28,8 +28,8 @@ See `examples/` for sample output (all formats), sample config files
 > push` picks up dotfiles correctly every time.
 
 ```bash
-git clone <your-repo-url>
-cd <repo-folder>          # the folder containing run.py
+git clone [<your-repo-url>](https://github.com/sazzad1148/sazzadul-APRSRF.git)
+cd sazzadul-APRSRF          # the folder containing run.py
 
 pip install -r requirements.txt --break-system-packages
 # (or, pip-installable form: pip install -e .   -- gives you the
