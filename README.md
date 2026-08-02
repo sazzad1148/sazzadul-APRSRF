@@ -28,7 +28,7 @@ See `examples/` for sample output (all formats), sample config files
 > push` picks up dotfiles correctly every time.
 
 ```bash
-git clone [<your-repo-url>](https://github.com/sazzad1148/sazzadul-APRSRF.git)
+git clone https://github.com/sazzad1148/sazzadul-APRSRF.git
 cd sazzadul-APRSRF          # the folder containing run.py
 
 pip install -r requirements.txt --break-system-packages
@@ -59,6 +59,7 @@ python3 run.py -d example.com --profile thorough --max-depth 8
 python3 run.py -dL example.txt --profile fast
 python3 run.py -dL example.txt --profile balanced
 python3 run.py -dL example.txt --profile thorough
+<img width="366" height="151" alt="image" src="https://github.com/user-attachments/assets/e3271702-44c5-4e1b-8fa6-153ba4e73219" />
 
 
 python3 run.py -d example.com --recursion-round-timeout 120   # default: 60/180/400s by profile
