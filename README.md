@@ -36,8 +36,18 @@ pip install -r requirements.txt --break-system-packages
 #  `passive-enum` command too, see section 2/17 below)
 
 cp .env.example
-nano.env       # optional -- fill in any free API keys you have
-
+nano.env     # optional -- fill in any free API keys you have
+GITHUB_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+CENSYS_API_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+CENSYS_API_SECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+VIRUSTOTAL_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+URLSCAN_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+FULLHUNT_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+CHAOS_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+## SAVE
+Ctrl + O → Save (Write Out)
+Enter 
+Ctrl + X → Nano
 
 python3 run.py -d example.com --profile fast     # run 2 -> output/ auto-wiped first, clean result
 python3 run.py -d example.com --profile fast --resume   # only this one preserves the prior output
@@ -54,7 +64,6 @@ python3 run.py -dL example.txt --profile thorough
 python3 run.py -d example.com --recursion-round-timeout 120   # default: 60/180/400s by profile
 python3 run.py -d example.com --source-stage-timeout 120      # default: 60/180/400s by profile
 
-```
 
 name               confidence available
 -----------------------------------------------
@@ -78,45 +87,6 @@ urlscan            Medium     yes
 virustotal         Medium     no (missing key/binary)
 wayback            Medium     yes
 ```
-
-
-```
-output/
-  example.com/
-    txt/  json/  reports/  ...
-  another-domain.com/
-    txt/  json/  reports/  ...
-  third-domain.com/
-    txt/  json/  reports/  ...
-```
-
-(With a single `-d` and no `-dL`, output stays flat at `output/...` exactly
-as before -- the per-domain subfolder only kicks in for batch mode, so
-existing single-domain scripts/workflows aren't affected.) Auto-fresh
-applies per domain, and a Ctrl+C stops the whole batch (already-completed
-domains keep their results; the interrupted domain can be resumed
-individually with `--resume -d <that-domain>`). A batch summary
-(OK/INTERRUPTED/FAILED per domain) prints at the end.
-
-**Only want the final result, nothing else?** Use `--minimal` -- after the
-run, everything except the two final-report files is deleted automatically:
-
-```bash
-python3 run.py -d example.com --profile fast --minimal
-```
-
-Leaves exactly:
-```
-output/
-  txt/final_hosts.txt        # hostnames only, one per line
-  reports/report.json        # full structured report (IPs, sources, confidence, cloud, ...)
-```
-
-Everything else -- per-stage `json/`, the other `txt/*.txt` files,
-`report.csv`/`.html`/`.md`, `cache.sqlite3`, `intel.sqlite3`,
-`metadata.json`, `checkpoints/`, `logs/` -- is removed. (Without
-`--minimal`, the default behavior is unchanged: only `checkpoints/` is
-auto-deleted, everything else stays -- see section 3 and section 18.)
 
 ## 3. Output structure
 
@@ -205,7 +175,6 @@ python3 run.py -d example.com --verbose   # console: DEBUG level
 python3 run.py -d example.com --debug     # console: DEBUG + full tracebacks for source failures
 ```
 
-
 ```bash
 # diff against a specific saved report
 python3 run.py -d example.com --diff /path/to/old/reports/report.json
@@ -213,11 +182,6 @@ python3 run.py -d example.com --diff /path/to/old/reports/report.json
 # diff against the most recent prior run for this domain in intel.sqlite3
 python3 run.py -d example.com --diff auto
 ##  Resume + Ctrl+C
-
-```bash
-python3 run.py -d example.com --profile thorough --resume   # the ONLY way to skip the auto-wipe
-python3 run.py -d example.com --profile thorough            # every other invocation auto-wipes first (see section 2)
-```
 
 ## LICENSE
 
